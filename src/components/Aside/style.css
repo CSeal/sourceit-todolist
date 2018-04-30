@@ -1,0 +1,25 @@
+#leftAside {
+    background-color: #810988;
+    border: 2px solid #c442bc;
+    border-radius: 5px;
+    color: aqua;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    float:left;
+    margin: 5px;
+    padding: 10px;
+    width: 20%;
+}
+#leftAside header{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+#leftAside ul{
+    list-style: none;
+    padding: 0;
+}
+#leftAside ul > li{
+    margin: 5px;
+    padding: 10px;
+}

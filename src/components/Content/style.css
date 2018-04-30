@@ -1,0 +1,135 @@
+#content{
+    min-width: 60%;
+    width:70%;
+    float: left;
+    border: 2px solid #4bd046;
+    border-radius: 5px;
+    color: black;
+    background-color: #3e9e39;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    margin: 5px;
+    padding: 10px;
+}
+#content button{
+    outline-style: none;
+}
+#content > header,
+#content .todo-title{
+    font-weight: bold;
+
+}
+
+#content > header{
+    font-size: 1.5em;
+    text-align: center;
+    color: #13ea62;
+}
+
+#content ul{
+    list-style: none;
+    padding: 0;
+}
+#content > ul > li{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#content > ul > li:last-child{
+    margin-bottom: 0;
+}
+
+#content > ul > li > section > div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#content .todo-header{
+    font-size: 1.2em;
+    color: #463369;
+    border-top-left-radius: 10px 5px;
+    border-top-right-radius: 10px 5px;
+    background-color: #5bcc83;
+    padding: 10px;
+}
+
+#content .todo-done .todo-title{
+    text-decoration: line-through;
+    color: #dcf3ee;
+}
+#content .todo-title > input{
+    width: 100%;
+    background-color: #4cb370;
+    border: none;
+    border-top-left-radius: 10px 5px;
+    border-top-right-radius: 10px 5px;
+    text-indent: 10px;
+    font-size: inherit;
+    outline-style: none;
+}
+
+#content .todo-status > *{
+    padding: 0 10px;
+}
+
+#content .todo-status .toggle-icon{
+    margin-left: 5px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+#content .todo-status .done-info{
+    color: #d87339;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#content .todo-done .todo-status .done-info{
+    color: gold;
+    font-weight: unset;
+}
+#content .todo-content{
+    position: relative;
+    min-height: 264px;
+}
+#content .todo-content > div{
+    position: absolute;
+    top: 0;
+}
+#content .todo-content > div:first-child{
+    display: inline-block;
+    opacity: 0.8;
+    width: 60%;
+    min-width: 30%;
+    background-color: white;
+    border-radius: 10px 5px;
+    text-align: justify;
+    padding: 10px;
+    margin-right: 10px;
+    left: 0;
+    bottom: 0;
+
+}
+#content .todo-content textarea{
+    width: 100%;
+    height: 100%;
+    background-color: #d5f5f5;
+    outline-style: none;
+    border: none;
+}
+#content .todo-content .DayPicker{
+    background-color: #ffe2f8;
+    opacity: 0.9;
+    border-radius: 5px;
+    right: 0;
+}
+#content .todo-action{
+    border-bottom-left-radius: 10px 5px;
+    border-bottom-right-radius: 10px 5px;
+    background-color: #5bcc83;
+    padding: 10px;
+}
+#content .todo-action > button:nth-child(n + 1){
+    margin-right: 15px;
+}
+#content .todo-action > button{
+    border-radius: 10px;
+}
