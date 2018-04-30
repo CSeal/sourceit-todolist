@@ -13,7 +13,7 @@ import "./style.css";
                 <aside id="leftAside">
                     <nav>
                         <header>Categories</header>
-                        <CategoriesList categories={categories} parentId={null} toDoList={toDoList}/>
+                        <CategoriesList categories={categories} parentId={null} />
                     </nav>
                 </aside>
         )

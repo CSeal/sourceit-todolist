@@ -70,7 +70,7 @@ export const ToDoList = {
         title:"Научится создовать компоненты",
         text: "Научится создавать компоненты из функций и ES6 классов.\n\rРазобратся с их особеностями применения",
         dateToDone: "Mon Apr 16 2018",
-        categoriesId: "2",
+        categoriesId: "1-2",
         done: false
     }
 };

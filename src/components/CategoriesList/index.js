@@ -11,21 +11,9 @@ class CategoriesList extends Component{
         return str.join('.');
     }
 
-    countTodosForLink(catId){
-        let count = 0;
-        const{toDoList} =this.props;
-        for(let kye in  toDoList){
-            if(toDoList[key].categoriesId === catId){
-                ++count;
-               delete toDoList[key];
-            }
-        }
-
-    }
-
     render(){
         const {parentId, categories, numberSeporator ='.'} = this.props;
-        let {menuElemNumber = '0'} = this.props;
+        let {menuElemNumber = '0', to = ""} = this.props;
         let categoryElements = compact(map(categories, item=>{
             if(parentId === item.parent){
                 menuElemNumber = this.createListNumber(menuElemNumber, numberSeporator);
@@ -35,7 +23,8 @@ class CategoriesList extends Component{
                                      parentId={parentId}
                                      itemsForNextSerch={categories}
                                      menuElemNumber={menuElemNumber}
-                                     numberSeporator={numberSeporator}/>)
+                                     numberSeporator={numberSeporator}
+                                        to={to}/>)
             }
          }));
        return categoryElements.length > 0? <ul>{categoryElements}</ul>: null;

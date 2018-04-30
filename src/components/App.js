@@ -3,7 +3,8 @@ import React, {Component, Fragment} from "react";
 import Header from "./Header";
 import Aside from "./Aside";
 import Content from "./Content";
-//import SourceData from "../staticSourceData";
+import Action404 from "./Action404";
+import {Route, Switch} from 'react-router-dom';
 
 class App extends Component {
     constructor(){
@@ -25,6 +26,17 @@ class App extends Component {
         toDoList: this.initToDoData(this.props.sourceData)
         });
     }
+/*Дописать счетчик после роутеров*/
+    countTodosForLink(catId){
+        let count = 0;
+        for(let kye in  toDoList){
+            if(toDoList[key].categoriesId === catId){
+                ++count;
+                delete toDoList[key];
+            }
+        }
+
+    }
 
     todoListSaveChange(item){
         const{toDoList}=this.state;
@@ -44,6 +56,18 @@ class App extends Component {
                        toDoList={toDoList}/>
                 <Content todos={toDoList}
                          todoEventHandlers={todoEventHandlers}/>
+
+ {/*               <Switch>
+                    <Route exact path='/' render={props =>(
+                        <Content {...props} todos={toDoList}
+                             todoEventHandlers={todoEventHandlers}/>
+                     )}/>
+                    <Route path='/todo/:id*'  render={props =>(
+                        <Content {...props} todos={toDoList}
+                                 todoEventHandlers={todoEventHandlers}/>
+                        )}/>
+                    <Route path='/' component={Action404}/>
+                </Switch>*/}
             </Fragment>
         )
     }
