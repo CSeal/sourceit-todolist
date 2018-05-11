@@ -7,9 +7,10 @@
     font-size: 1em;
     float:left;
     margin: 5px;
-    padding: 10px;
+    padding: 10px 5px;
     width: 20%;
 }
+
 #leftAside header{
     text-align: center;
     font-size: 1.5em;
@@ -21,5 +22,30 @@
 }
 #leftAside ul > li{
     margin: 5px;
-    padding: 10px;
+    padding: 5px 0;
+}
+
+#leftAside a{
+    color: #ecd3f9;
+    text-decoration: none;
+}
+
+#leftAside a > span.badge{
+    color: #ecd3f9;
+    background-color: #bf3bb5;
+
+}
+
+#leftAside a.selected{
+    color: #87f387;
+}
+
+#leftAside a:not(.selected):hover{
+    font-size: 1.05em;
+    color: #91ff91;
+    -webkit-transition: all .2s ease-in-out .1s;
+    -moz-transition: all .2s ease-in-out .1s;
+    -ms-transition: all .2s ease-in-out .1s;
+    -o-transition: all .2s ease-in-out .1s;
+    transition: all .2s ease-in-out .1s;
 }

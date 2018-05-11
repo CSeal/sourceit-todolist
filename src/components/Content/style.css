@@ -1,15 +1,24 @@
+#container::after{
+    content:".";
+    clear: both;
+    display: block;
+    height: 1px;
+    visibility: hidden;
+}
+
 #content{
     min-width: 60%;
     width:70%;
     float: left;
     border: 2px solid #4bd046;
     border-radius: 5px;
-    color: black;
+    color: #000000;
     background-color: #3e9e39;
     font-family: Geneva, Arial, Helvetica, sans-serif;
     margin: 5px;
     padding: 10px;
 }
+
 #content button{
     outline-style: none;
 }
@@ -77,20 +86,39 @@
 }
 
 #content .todo-status .done-info{
-    color: #d87339;
     font-size: 1.3em;
     font-weight: bold;
 }
+#content  .todo-have-more-times .todo-status .done-info{
+    color: #145214;
+}
+#content .todo-have-not-more-times .todo-status .done-info{
+    color: #924f2e;
+}
 
 #content .todo-done .todo-status .done-info{
-    color: gold;
+    color: #FFD700;
     font-weight: unset;
+}
+
+#content .todo-status .reserve-days{
+    font-weight: bold;
+}
+
+#content .todo-status .reserve-days.reserve-days-up{
+    color: #4f8a13;
+}
+
+#content .todo-status .reserve-days.reserve-days-down{
+    color: #FF6347;
+    text-decoration: underline;
 }
 #content .todo-content{
     position: relative;
     min-height: 264px;
 }
 #content .todo-content > div{
+    white-space: pre-wrap;
     position: absolute;
     top: 0;
 }
@@ -99,7 +127,7 @@
     opacity: 0.8;
     width: 60%;
     min-width: 30%;
-    background-color: white;
+    background-color: #FFFFFF;
     border-radius: 10px 5px;
     text-align: justify;
     padding: 10px;
@@ -121,6 +149,18 @@
     border-radius: 5px;
     right: 0;
 }
+
+#content .todo-content .DayPicker-Day--have-time:not(.DayPicker-Day--outside){
+    background-color: #84e51c;
+}
+#content .todo-content .DayPicker-Day--have-not-time:not(.DayPicker-Day--outside){
+    background-color: #ffaa68;
+}
+#content .todo-content .DayPicker-Day--todo-done:not(.DayPicker-Day--outside){
+    background-color: #FFD700;
+    color: #000000;
+}
+
 #content .todo-action{
     border-bottom-left-radius: 10px 5px;
     border-bottom-right-radius: 10px 5px;

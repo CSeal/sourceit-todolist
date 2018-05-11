@@ -7,13 +7,17 @@ import "./style.css";
         super(props);
     }
     render(){
-        const {categories} = this.props;
-        const toDoList = Object.assign({}, this.props.toDoList);
+        const {categories, catsIdDelimetr, catNumberDelimetr, countTodosForLink} = this.props;
             return (
                 <aside id="leftAside">
                     <nav>
                         <header>Categories</header>
-                        <CategoriesList categories={categories} parentId={null} />
+                        <CategoriesList categories={categories}
+                                        parentId={null}
+                                        catsIdDelimetr={catsIdDelimetr}
+                                        catNumberDelimetr={catNumberDelimetr}
+                                        countTodosForLink={countTodosForLink}
+                        />
                     </nav>
                 </aside>
         )

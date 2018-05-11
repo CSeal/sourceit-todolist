@@ -1,21 +1,24 @@
-/*
-Параматром приходит обьект Props.
-Чтоб получить доступ к необходимому пропсу  надо делать деструктивное присваевание
- */
 import React from "react";
 import {NavLink} from 'react-router-dom';
 import CategoriesList from "./CategoriesList";
+import {Badge} from "react-bootstrap";
 
-const CategoryItem = ({item, parentId, itemsForNextSerch, menuElemNumber, numberSeporator, to})=>{
+const CategoryItem = ({item, parentId,
+                          itemsForNextSerch, menuElemNumber,
+                          catNumberDelimetr, catsIdDelimetr,
+                          countTodosForLink, to})=>{
     if(to){
-       to += `-${item.id}`;
+       to += catsIdDelimetr + item.id;
     }else{
         to = item.id;
     }
-    return (<li><NavLink to={`/todo/${to}/`} activeClassName="selected">{menuElemNumber} {item.title}</NavLink>
+    return (<li><NavLink to={`/todo/${to}/`} activeClassName="selected">{menuElemNumber} {item.title} <Badge>{countTodosForLink(to, catsIdDelimetr)}</Badge></NavLink>
         <CategoriesList parentId={item.id}
                         categories={itemsForNextSerch}
-                        menuElemNumber = {menuElemNumber+= `${numberSeporator}0`}
+                        menuElemNumber = {menuElemNumber+= `${catNumberDelimetr}0`}
+                        catNumberDelimetr = {catNumberDelimetr}
+                        catsIdDelimetr = {catsIdDelimetr}
+                        countTodosForLink={countTodosForLink}
                         to={to}/>
     </li>)
 

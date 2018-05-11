@@ -3,27 +3,29 @@ import {map, compact} from "lodash";
 import CategoryItem from "../CategoryItem";
 class CategoriesList extends Component{
 
-    createListNumber(str, numberSeporator){
+    createListNumber(str, numberDelimetr){
 
-        str = str.split(numberSeporator);
+        str = str.split(numberDelimetr);
         if(str.length === 0) return;
         str[str.length - 1] = +str[str.length - 1] + 1;
-        return str.join('.');
+        return str.join(numberDelimetr);
     }
 
     render(){
-        const {parentId, categories, numberSeporator ='.'} = this.props;
+        const {parentId, categories, catNumberDelimetr ='.', catsIdDelimetr, countTodosForLink} = this.props;
         let {menuElemNumber = '0', to = ""} = this.props;
         let categoryElements = compact(map(categories, item=>{
             if(parentId === item.parent){
-                menuElemNumber = this.createListNumber(menuElemNumber, numberSeporator);
+                menuElemNumber = this.createListNumber(menuElemNumber, catNumberDelimetr);
 
                 return(<CategoryItem key={item.id}
                                      item={item}
                                      parentId={parentId}
                                      itemsForNextSerch={categories}
                                      menuElemNumber={menuElemNumber}
-                                     numberSeporator={numberSeporator}
+                                     catNumberDelimetr={catNumberDelimetr}
+                                     catsIdDelimetr={catsIdDelimetr}
+                                     countTodosForLink={countTodosForLink}
                                         to={to}/>)
             }
          }));

@@ -62,17 +62,41 @@ export const ToDoList = {
         title:"Сделать домашку ко второму уроку",
         text: "Продумать структуру приложения ToDo",
         dateToDone: "Fri Apr 13 2018",
-        categoriesId: "1",
+        categoriesId: ['1'],
         done: true
     },
     2: {
         id: 2,
         title:"Научится создовать компоненты",
-        text: "Научится создавать компоненты из функций и ES6 классов.\n\rРазобратся с их особеностями применения",
-        dateToDone: "Mon Apr 16 2018",
-        categoriesId: "1-2",
+        text: "Научится создавать компоненты из функций и ES6 классов.Разобратся с их особеностями применения",
+        dateToDone: "Thu May 03 2018",
+        categoriesId: ['1','2'],
         done: false
-    }
+    },
+    3: {
+        id: 3,
+        title:"Изучить жизненый цико компанентов",
+        text: "",
+        dateToDone: "Tue May 15 2018",
+        categoriesId: ['1','2'],
+        done: true
+    },
+    4: {
+        id: 4,
+        title:"Научится создовать роуты",
+        text: "Научится создавать роуты",
+        dateToDone: "Thu May 10 2018",
+        categoriesId: ['1'],
+        done: true
+    },
+    5: {
+        id: 5,
+        title:"Потрениероватся c Redux",
+        text: "Написать калькулятор на Redux + JS native",
+        dateToDone: "Fri May 11 2018",
+        categoriesId: ['1'],
+        done: true
+    },
 };
 
 export default {

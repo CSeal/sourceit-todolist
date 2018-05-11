@@ -1,18 +1,18 @@
 import React, {Component, Fragment} from "react";
-
+import {Route, Switch} from "react-router-dom";
 import Header from "./Header";
 import Aside from "./Aside";
 import Content from "./Content";
-import Action404 from "./Action404";
-import {Route, Switch} from 'react-router-dom';
 
 class App extends Component {
     constructor(){
         super();
         this.state = {
-            activeCatId: null
+            catNumberDelimetr: '.',
+            catsIdDelimetr: '-'
         };
         this.todoListSaveChange = this.todoListSaveChange.bind(this);
+        this.countTodosForLink = this.countTodosForLink.bind(this);
     }
     initCatData(data){
          if(data.Categories) return data.Categories;
@@ -26,16 +26,16 @@ class App extends Component {
         toDoList: this.initToDoData(this.props.sourceData)
         });
     }
-/*Дописать счетчик после роутеров*/
-    countTodosForLink(catId){
-        let count = 0;
-        for(let kye in  toDoList){
-            if(toDoList[key].categoriesId === catId){
+
+    countTodosForLink(catsId, catsIdDelimetr){
+        let count = 0, catsIdRegExp = new RegExp(`^${catsId}`, 'i');
+        const {toDoList} = this.state;
+        for(let key in toDoList){
+            if(catsIdRegExp.test(toDoList[key].categoriesId.join(catsIdDelimetr))){
                 ++count;
-                delete toDoList[key];
             }
         }
-
+        return count;
     }
 
     todoListSaveChange(item){
@@ -46,36 +46,23 @@ class App extends Component {
         return true;
     }
     render(){
-        const {activeCatId, categories, toDoList} = this.state;
+        const {activeCatId, categories, toDoList, catsIdDelimetr, catNumberDelimetr} = this.state;
         const todoEventHandlers ={todoListSaveChange: this.todoListSaveChange};
         return (
             <Fragment>
-                <Header/>
+                <Header categories={categories}
+                        todos={toDoList}
+                        catsIdDelimetr={catsIdDelimetr}/>
                 <Aside categories={categories}
-                       activeCatId={activeCatId}
-                       toDoList={toDoList}/>
+                       catsIdDelimetr={catsIdDelimetr}
+                       catNumberDelimetr={catNumberDelimetr}
+                       countTodosForLink={this.countTodosForLink}/>
                 <Content todos={toDoList}
-                         todoEventHandlers={todoEventHandlers}/>
-
- {/*               <Switch>
-                    <Route exact path='/' render={props =>(
-                        <Content {...props} todos={toDoList}
-                             todoEventHandlers={todoEventHandlers}/>
-                     )}/>
-                    <Route path='/todo/:id*'  render={props =>(
-                        <Content {...props} todos={toDoList}
-                                 todoEventHandlers={todoEventHandlers}/>
-                        )}/>
-                    <Route path='/' component={Action404}/>
-                </Switch>*/}
+                         todoEventHandlers={todoEventHandlers}
+                         catsIdDelimetr={catsIdDelimetr}/>
             </Fragment>
         )
     }
 }
-/*App.propsDefault = {
-    sourceData:{
-        Categories: null,
-        ToDoList: null
-    }
-};*/
+
 export default App;
